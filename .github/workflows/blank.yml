@@ -29,7 +29,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Test Snyk
-        run: print "hello world"
+        run: echo Hello, world!
 
       - name: Use node.js for installing snyk
         uses: actions/checkout@v4
