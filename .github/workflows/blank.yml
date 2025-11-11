@@ -29,18 +29,12 @@ jobs:
       - uses: actions/checkout@v4
 
 
-      - name: Install Snyk
+      - name: Install and configure Snyk
         run: |
           npm install snyk -g
           npm install snyk-to-html -g
-
-          
-      - name: Configure Snyk
-        run: snyk config set endpoint='https://app.eu.snyk.io/api'
-
-
-      - name: Auth Snyk
-        run: snyk auth "$SNYK_TOKEN"
+          snyk config set endpoint='https://app.eu.snyk.io/api'
+          snyk auth "$SNYK_TOKEN"
 
 
       - name: Test Snyk
