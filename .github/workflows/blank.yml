@@ -25,16 +25,21 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
-      # Runs a set of commands using the runners shell
-      - name: Configure Snyk
+
+      - name: Install Snyk
         run: |
           npm install snyk -g
           npm install snyk-to-html -g
-          snyk config set endpoint='https://app.eu.snyk.io/api'
-          snyk auth "$SNYK_TOKEN"
+
+          
+      - name: Configure Snyk
+        run: snyk config set endpoint='https://app.eu.snyk.io/api'
 
 
-      # Runs a set of commands using the runners shell
+      - name: Auth Snyk
+        run: snyk auth "$SNYK_TOKEN"
+
+
       - name: Test Snyk
         run: snyk test
 
