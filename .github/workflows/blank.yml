@@ -40,7 +40,7 @@ jobs:
 
 
       - name: Auth Snyk
-        run: snyk auth $SNYK_TOKEN
+        run: snyk auth "$SNYK_TOKEN"
 
 
       - name: Test Snyk
