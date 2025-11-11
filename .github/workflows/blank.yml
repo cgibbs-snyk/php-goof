@@ -28,7 +28,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
+      - name: Test Snyk
+        run: print "hello world"
 
+      - name: Use node.js for installing snyk
+        uses: actions/checkout@v4
+        with:
+          node-version: lts/*
+        
       - name: Install and configure Snyk
         run: |
           npm install snyk -g
